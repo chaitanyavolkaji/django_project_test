@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quizzes</title>
+</head>
+<body>
+<a href="/quizapp/quiz/add">Add Quiz</a>
+
+<ul>
+{% for quiz in quizzes %}
+    <a href="/quizapp/quiz/{{ quiz.id }}/question/add"><li>{{ quiz.id }}.{{ quiz.name }}</li> </a>
+{% endfor %}
+</ul>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action="/quizapp/login">
+    <p>Quiz Name </p>
+    {% csrf_token %}
+    <p>Username</p>
+    <input name="username"><br>
+    <p>Password</p>
+    <input name="password" type="password"><br>
+    <input type="submit">
+</form>
+</body>
+</html>

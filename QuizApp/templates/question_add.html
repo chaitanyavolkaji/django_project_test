@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<b></b><a href="/quizapp/quiz"> Return to Quizzes </a></b>
+<p>Quiz ID : {{id}}</p>
+<p>Quiz Name : {{name}}</p>
+{% for question in questions %}
+    <ul>{{ question.description }}</ul>
+    {% for answer in question.answers %}
+    <li>{{ answer.option }}.{{ answer.description}}</li>
+    {% endfor %}
+    <b>Correct Option : {{question.correct_option}}</b>
+{% endfor %}
+<br>
+<br>
+<br>
+<b>Add Question</b>
+<form method="POST" action="/quizapp/quiz/{{id}}/question/add">
+    {% csrf_token %}
+    Question <input name="description"><br>
+    Option A <input name="option_a"><br>
+    Option B <input name="option_b"><br>
+    Option C <input name="option_c"><br>
+    Option D <input name="option_d"><br>
+    Correct Option
+    <select option="" name="correct_option">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+        <option>D</option>
+    </select><br>
+    <input type="submit">
+</form>
+</body>
+</html>
